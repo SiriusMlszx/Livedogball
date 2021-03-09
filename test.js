@@ -1,5 +1,6 @@
 const string = `
-/* 你好，我叫王司宇，我现在要用CSS画一只小狗和球 */
+/* 你好，我叫王司宇 */
+/* 我现在要用CSS画一只小狗和球 */
 /* 首先将小狗的身体画出来  */
 .dog {
     width: 100px;
@@ -29,13 +30,49 @@ const string = `
     position: absolute;
 }
 
+@keyframes dog-body {
+    from {
+        transform: translateX(-10%);
+    }
+
+    to {
+        transform: translateX(10%);
+    }
+}
+
 .dog-body {
     top: -50%;
     animation: dog-body 200ms ease-in-out infinite alternate;
 }
 
+@keyframes dog-head {
+
+    from,
+    to {
+        transform: rotate(45deg)
+    }
+
+    33.3% {
+        transform: rotate(-45deg)
+    }
+
+    66.6% {
+        transform: rotate(0)
+    }
+}
+
 .dog-head {
     animation: dog-head 1800ms cubic-bezier(0.11, 0.79, 0, 0.99) infinite;
+}
+
+@keyframes dog-torso {
+    from {
+        transform: translateX(-5%);
+    }
+
+    to {
+        transform: translateY(5%);
+    }
 }
 
 .dog-body,
@@ -57,6 +94,22 @@ const string = `
     top: -20%;
     animation: dog-torso 200ms ease-in-out infinite alternate-reverse;
 }
+
+@keyframes dog-eye {
+
+    from,
+    to {
+        animation-timing-function: step-end;
+        opacity: 1;
+    }
+
+    50%,
+    55% {
+        animation-timing-function: step-start;
+        opacity: 0;
+    }
+}
+
 
 /* 接着是眼睛，右眼是橘子斑 */
 .dog-eyes {
@@ -141,6 +194,38 @@ const string = `
     border-top-right-radius: 50% 40%;
 }
 
+@keyframes dog-tongue {
+
+    from,
+    to {
+        transform: rotate(0);
+    }
+
+    16.67% {
+        transform: rotate(30deg);
+    }
+
+    33.33%,
+    66.67% {
+        transform: rotate(0);
+    }
+
+    50%,
+    83.33% {
+        transform: rotate(-20deg);
+    }
+}
+
+@keyframes dog-tongue-inner {
+    from {
+        transform: translateY(5%);
+    }
+
+    to {
+        transform: translateY(22%);
+    }
+}
+
 /* 狗狗热的舌头，后面会让它伸出来的 */
 .dog-tongue {
     width: 40px;
@@ -165,6 +250,34 @@ const string = `
 }
 
 /* 然后画耳朵 */
+@keyframes dog-ears {
+
+    42.3%,
+    71.6% {
+        transform: rotate(-5deg);
+    }
+
+    50.3%,
+    79.6% {
+        transform: rotate(5deg);
+    }
+
+    5% {
+        transform: rotate(5deg);
+    }
+
+    12% {
+        transform: rotate(-5%);
+    }
+
+    from,
+    33.3%,
+    66%,
+    to {
+        transform: rotate(0);
+    }
+}
+
 .dog-ears {
     width: 40%;
     top: 25%;
@@ -205,6 +318,28 @@ const string = `
 }
 
 /* 最后是尾巴 */
+@keyframes dog-tail-segment {
+    from {
+        transform: rotate(-10deg);
+    }
+
+    to {
+        transform: rotate(10deg);
+    }
+}
+
+
+
+@keyframes dog-tail {
+    from {
+        transform: rotate(-45deg);
+    }
+
+    to {
+        transform: rotate(45deg);
+    }
+}
+
 .dog-tail {
     width: 22px;
     height: 24.2px;
@@ -225,6 +360,29 @@ const string = `
 }
 
 /* 给狗狗一个小球，让他们一起玩耍吧！ */
+@keyframes bounce {
+    from {
+        transform: scale(2);
+        animation-timing-function: ease-in;
+    }
+
+    to {
+        transform: scale(0.8);
+        animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    }
+}
+
+@keyframes bounce-shadow {
+    from {
+        transform: scale(2.5, 2.6) translateY(-50%);
+        animation-timing-function: ease-in;
+    }
+
+    to {
+        transform: scale(0.5) translateY(0);
+        animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    }
+}
 
 .ball {
     width: 32px;
@@ -271,238 +429,78 @@ const string = `
     z-index: -10;
 }
 
-/* 激动人心的时刻到了，我们让狗狗动起来！ */
-@keyframes dog-body {
-    from {
-        transform: translateX(-10%);
-    }
-
-    to {
-        transform: translateX(10%);
-    }
-}
-
-
-@keyframes dog-head {
-
-    from,
-    to {
-        transform: rotate(45deg)
-    }
-
-    33.3% {
-        transform: rotate(-45deg)
-    }
-
-    66.6% {
-        transform: rotate(0)
-    }
-}
-
-@keyframes dog-eye {
-
-    from,
-    to {
-        animation-timing-function: step-end;
-        opacity: 1;
-    }
-
-    50%,
-    55% {
-        animation-timing-function: step-start;
-        opacity: 0;
-    }
-}
-
-@keyframes dog-torso {
-    from {
-        transform: translateX(-5%);
-    }
-
-    to {
-        transform: translateY(5%);
-    }
-}
-
-@keyframes dog-tongue {
-
-    from,
-    to {
-        transform: rotate(0);
-    }
-
-    16.67% {
-        transform: rotate(30deg);
-    }
-
-    33.33%,
-    66.67% {
-        transform: rotate(0);
-    }
-
-    50%,
-    83.33% {
-        transform: rotate(-20deg);
-    }
-}
-
-@keyframes dog-tongue-inner {
-    from {
-        transform: translateY(5%);
-    }
-
-    to {
-        transform: translateY(22%);
-    }
-}
-
-@keyframes dog-ears {
-
-    42.3%,
-    71.6% {
-        transform: rotate(-5deg);
-    }
-
-    50.3%,
-    79.6% {
-        transform: rotate(5deg);
-    }
-
-    5% {
-        transform: rotate(5deg);
-    }
-
-    12% {
-        transform: rotate(-5%);
-    }
-
-    from,
-    33.3%,
-    66%,
-    to {
-        transform: rotate(0);
-    }
-}
-
-@keyframes dog-tail-segment {
-    from {
-        transform: rotate(-10deg);
-    }
-
-    to {
-        transform: rotate(10deg);
-    }
-}
-
-
-
-@keyframes dog-tail {
-    from {
-        transform: rotate(-45deg);
-    }
-
-    to {
-        transform: rotate(45deg);
-    }
-}
-
 /* 点一下小球就可以让它弹起来！ */
-@keyframes bounce {
-    from {
-        transform: scale(2);
-        animation-timing-function: ease-in;
-    }
-
-    to {
-        transform: scale(0.8);
-        animation-timing-function: cubic-bezier(0, 0, 0, 1);
-    }
-}
-
-@keyframes bounce-shadow {
-    from {
-        transform: scale(2.5, 2.6) translateY(-50%);
-        animation-timing-function: ease-in;
-    }
-
-    to {
-        transform: scale(0.5) translateY(0);
-        animation-timing-function: cubic-bezier(0, 0, 0, 1);
-    }
-}
-
 /* 画完啦！一只小狗和一个小球，送给你！ */
-
 `
 
 
 const player = {
-  id: undefined,
-  time: 50,
-  n: 1,
-  ui: {
-    demo: document.querySelector("#demo"),
-    demo2: document.querySelector("#demo2")
-  },
-  init: () => {
-    player.ui.demo.innerText = string.substr(0, player.n)
-    player.ui.demo2.innerHTML = string.substr(0, player.n)
-    player.bindEvents()
-    player.play()
+    id: undefined,
+    time: 50,
+    n: 1,
+    ui: {
+        demo: document.querySelector("#demo"),
+        demo2: document.querySelector("#demo2")
+    },
+    init: () => {
+        player.ui.demo.innerText = string.substr(0, player.n)
+        player.ui.demo2.innerHTML = string.substr(0, player.n)
+        player.bindEvents()
+        player.play()
 
-  },
-  events: {
-    '#btnPause': 'pause',
-    '#btnPlay': 'play',
-    '#btnSlow': 'slow',
-    '#btnFast': 'fast',
-    '#btnNormal': 'normal'
-  },
-  bindEvents: () => {
+    },
+    events: {
+        '#btnPause': 'pause',
+        '#btnPlay': 'play',
+        '#btnSlow': 'slow',
+        '#btnFast': 'fast',
+        '#btnNormal': 'normal'
+    },
+    bindEvents: () => {
 
-    for (let key in player.events)
-      if (player.events.hasOwnProperty(key))
-    // if用来防止遍历继承的对象
-    {
-      const value = player.events[key]
-      document.querySelector(key).onclick = player[value]
-    }
+        for (let key in player.events)
+            if (player.events.hasOwnProperty(key))
+        // if用来防止遍历继承的对象
+        {
+            const value = player.events[key]
+            document.querySelector(key).onclick = player[value]
+        }
 
-  },
-  run: () => {
-    player.n += 1
-    if (player.n > string.length) {
-      window.clearInterval(player.id)
-      return
-    }
+    },
+    run: () => {
+        player.n += 1
+        if (player.n > string.length) {
+            window.clearInterval(player.id)
+            return
+        }
 
-    player.ui.demo.innerText = string.substr(0, player.n)
-    player.ui.demo2.innerHTML = string.substr(0, player.n)
-    player.ui.demo.scrollTop = player.ui.demo.scrollHeight
-  },
-  play: () => {
-    player.pause()
-    player.id = setInterval(player.run, player.time)
-  },
-  pause: () => {
-    window.clearInterval(player.id)
-  },
-  slow: () => {
-    player.pause()
-    player.time = 50
-    player.play()
+        player.ui.demo.innerText = string.substr(0, player.n)
+        player.ui.demo2.innerHTML = string.substr(0, player.n)
+        player.ui.demo.scrollTop = player.ui.demo.scrollHeight
+    },
+    play: () => {
+        player.pause()
+        player.id = setInterval(player.run, player.time)
+    },
+    pause: () => {
+        window.clearInterval(player.id)
+    },
+    slow: () => {
+        player.pause()
+        player.time = 50
+        player.play()
 
-  },
-  normal: () => {
-    player.pause()
-    player.time = 20
-    player.play()
-  },
-  fast: () => {
-    player.pause()
-    player.time = 0
-    player.play()
-  },
+    },
+    normal: () => {
+        player.pause()
+        player.time = 20
+        player.play()
+    },
+    fast: () => {
+        player.pause()
+        player.time = 0
+        player.play()
+    },
 }
 
 player.init()
