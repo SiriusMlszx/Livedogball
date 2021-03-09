@@ -271,7 +271,17 @@
 }
 
 /* 激动人心的时刻到了，我们让狗狗动起来！ */
-@keyframes dog-body {
+/* @keyframes dog-body {
+    from {
+        transform: translateX(-10%);
+    }
+
+    to {
+        transform: translateX(10%);
+    }
+} */
+
+@-webkit-keyframes dog-body {
     from {
         transform: translateX(-10%);
     }
@@ -282,7 +292,8 @@
 }
 
 
-@keyframes dog-head {
+
+@-webkit-keyframes dog-head {
 
     from,
     to {

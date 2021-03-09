@@ -272,7 +272,7 @@ const string = `
 }
 
 /* 激动人心的时刻到了，我们让狗狗动起来！ */
-@keyframes dog-body {
+@-webkit-keyframes dog-body {
     from {
         transform: translateX(-10%);
     }
@@ -283,7 +283,7 @@ const string = `
 }
 
 
-@keyframes dog-head {
+@-webkit-keyframes dog-head {
 
     from,
     to {
