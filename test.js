@@ -1,6 +1,7 @@
 const string = `
 /* 你好，我叫王司宇，我现在要用CSS画一只小狗和球 */
 /* 首先将小狗的身体画出来  */
+
 .dog {
     width: 100px;
     height: 100px;
@@ -28,7 +29,32 @@ const string = `
 .dog * {
     position: absolute;
 }
+@keyframes dog-body {
+  from {
+      transform: translateX(-10%);
+  }
 
+  to {
+      transform: translateX(10%);
+  }
+}
+
+
+@keyframes dog-head {
+
+  from,
+  to {
+      transform: rotate(45deg)
+  }
+
+  33.3% {
+      transform: rotate(-45deg)
+  }
+
+  66.6% {
+      transform: rotate(0)
+  }
+}
 .dog-body {
     top: -50%;
     animation: dog-body 200ms ease-in-out infinite alternate;
@@ -272,57 +298,7 @@ const string = `
 }
 
 /* 激动人心的时刻到了，我们让狗狗动起来！ */
-@-webkit-keyframes dog-body {
-    from {
-        transform: translateX(-10%);
-    }
 
-    to {
-        transform: translateX(10%);
-    }
-}
-
-
-@keyframes dog-body {
-  from {
-      transform: translateX(-10%);
-  }
-
-  to {
-      transform: translateX(10%);
-  }
-}
-@-webkit-keyframes dog-head {
-
-    from,
-    to {
-        transform: rotate(45deg)
-    }
-
-    33.3% {
-        transform: rotate(-45deg)
-    }
-
-    66.6% {
-        transform: rotate(0)
-    }
-}
-
-@keyframes dog-head {
-
-  from,
-  to {
-      transform: rotate(45deg)
-  }
-
-  33.3% {
-      transform: rotate(-45deg)
-  }
-
-  66.6% {
-      transform: rotate(0)
-  }
-}
 
 @keyframes dog-eye {
 
@@ -457,6 +433,7 @@ const string = `
 }
 
 /* 画完啦！一只小狗和一个小球，送给你！ */
+
 `
 
 
