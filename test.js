@@ -283,6 +283,15 @@ const string = `
 }
 
 
+@keyframes dog-body {
+  from {
+      transform: translateX(-10%);
+  }
+
+  to {
+      transform: translateX(10%);
+  }
+}
 @-webkit-keyframes dog-head {
 
     from,
@@ -297,6 +306,22 @@ const string = `
     66.6% {
         transform: rotate(0)
     }
+}
+
+@keyframes dog-head {
+
+  from,
+  to {
+      transform: rotate(45deg)
+  }
+
+  33.3% {
+      transform: rotate(-45deg)
+  }
+
+  66.6% {
+      transform: rotate(0)
+  }
 }
 
 @keyframes dog-eye {
