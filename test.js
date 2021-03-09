@@ -8,6 +8,7 @@ const string = `
 }
 
 .dog {
+    top: 10%;
     width: 100px;
     height: 100px;
     z-index: 1;
@@ -231,6 +232,7 @@ const string = `
     border-radius: 50%;
     margin-top: 4rem;
     z-index: 0;
+    top: 10%;
 }
 
 .ball:after {
